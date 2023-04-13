@@ -1,0 +1,17 @@
+lv_area.h:110:20:lv_area_copy	16	static
+lv_mem.h:82:20:lv_memzero	16	static
+lv_obj_style_gen.h:55:26:lv_obj_get_style_transform_width	24	static
+lv_obj_style_gen.h:61:26:lv_obj_get_style_transform_height	24	static
+lv_imgbtn.c:57:12:lv_imgbtn_create	24	static
+lv_imgbtn.c:80:6:lv_imgbtn_set_src	32	static
+lv_imgbtn.c:94:6:lv_imgbtn_set_state	24	static
+lv_imgbtn.c:123:14:lv_imgbtn_get_src_left	24	static
+lv_imgbtn.c:138:14:lv_imgbtn_get_src_middle	24	static
+lv_imgbtn.c:152:14:lv_imgbtn_get_src_right	24	static
+lv_imgbtn.c:165:13:lv_imgbtn_constructor	24	static
+lv_imgbtn.c:176:13:lv_imgbtn_event	40	static
+lv_imgbtn.c:207:13:draw_main	104	static
+lv_imgbtn.c:287:13:refr_img	32	static
+lv_imgbtn.c:308:26:suggest_state	24	static
+lv_imgbtn.c:339:26:get_state	24	static
+lv_imgbtn.c:360:13:update_src_info	24	static

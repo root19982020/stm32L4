@@ -1,0 +1,9 @@
+lv_mem.c:65:8:lv_malloc	24	static
+lv_mem.c:100:6:lv_free	16	static
+lv_mem.c:116:8:lv_realloc	24	static
+lv_mem.c:137:8:lv_memcpy	24	static
+lv_mem.c:142:6:lv_memset	24	static
+lv_mem.c:147:8:lv_strlen	16	static
+lv_mem.c:152:8:lv_strncpy	24	static
+lv_mem.c:157:10:lv_mem_test	8	static
+lv_mem.c:171:6:lv_mem_monitor	16	static

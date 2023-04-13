@@ -1,0 +1,6 @@
+lv_mem.h:82:20:lv_memzero	16	static
+lv_img_cache.c:37:6:lv_img_cache_manager_init	16	static
+lv_img_cache.c:43:6:lv_img_cache_manager_apply	16	static
+lv_img_cache.c:49:25:_lv_img_cache_open	24	static
+lv_img_cache.c:55:6:lv_img_cache_set_size	16	static
+lv_img_cache.c:61:6:lv_img_cache_invalidate_src	16	static

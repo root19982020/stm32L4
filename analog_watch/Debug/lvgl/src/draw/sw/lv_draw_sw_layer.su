@@ -1,0 +1,7 @@
+lv_area.h:123:26:lv_area_get_width	16	static
+lv_area.h:133:26:lv_area_get_height	16	static
+lv_mem.h:82:20:lv_memzero	16	static
+lv_draw_sw_layer.c:45:31:lv_draw_sw_layer_create	40	static
+lv_draw_sw_layer.c:88:6:lv_draw_sw_layer_adjust	32	static
+lv_draw_sw_layer.c:106:6:lv_draw_sw_layer_blend	40	static
+lv_draw_sw_layer.c:128:6:lv_draw_sw_layer_destroy	16	static

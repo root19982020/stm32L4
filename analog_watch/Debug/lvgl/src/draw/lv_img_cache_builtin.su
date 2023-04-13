@@ -1,0 +1,5 @@
+lv_mem.h:82:20:lv_memzero	16	static
+lv_img_cache_builtin.c:61:6:_lv_img_cache_builtin_init	24	static
+lv_img_cache_builtin.c:87:32:_lv_img_cache_open_builtin	40	static
+lv_img_cache_builtin.c:173:13:lv_img_cache_set_size_builtin	16	static
+lv_img_cache_builtin.c:204:13:lv_img_cache_invalidate_src_builtin	16	static
