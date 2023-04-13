@@ -1,0 +1,10 @@
+lv_malloc_builtin.c:72:6:lv_mem_init_builtin	8	static
+lv_malloc_builtin.c:91:6:lv_mem_deinit_builtin	8	static
+lv_malloc_builtin.c:97:25:lv_mem_builtin_add_pool	16	static
+lv_malloc_builtin.c:102:6:lv_mem_builtin_remove_pool	16	static
+lv_malloc_builtin.c:107:6:lv_mem_monitor_builtin	16	static
+lv_malloc_builtin.c:130:8:lv_malloc_builtin	16	static
+lv_malloc_builtin.c:137:8:lv_realloc_builtin	16	static
+lv_malloc_builtin.c:142:6:lv_free_builtin	24	static
+lv_malloc_builtin.c:152:10:lv_mem_test_builtin	8	static
+lv_malloc_builtin.c:172:13:lv_mem_walker	32	static

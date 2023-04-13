@@ -1,0 +1,6 @@
+lv_color.h:608:26:lv_color_hex	24	static
+lv_obj_pos.h:199:20:lv_obj_center	16	static
+lv_disp.h:184:26:lv_scr_act	8	static
+lv_example_event_4.c:8:13:timer_cb	16	static
+lv_example_event_4.c:18:13:event_cb	96	static
+lv_example_event_4.c:47:6:lv_example_event_4	16	static
