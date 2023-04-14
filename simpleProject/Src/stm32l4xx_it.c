@@ -25,6 +25,10 @@
 #include "task.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "IHMMGR.h"
+#include <ctype.h>
+#include "usart.h"
+#include "tim.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -226,6 +230,49 @@ void DMA2_Channel2_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	portBASE_TYPE taskWoken = pdFALSE;
+  /* Prevent unused argument(s) compilation warning */
+	if ( huart->Instance == USART2 )
+	{
+		if(RxChar=='\r')
+		{
+			CMDReceived=true;
+			portEND_SWITCHING_ISR(taskWoken);
+			HAL_UART_Transmit(&huart2, (uint8_t *)"\r\n", 2, 10);
+		}
+	else {
+		if((sizeof(RxBuffer)-1)>strlen(RxBuffer))
+			{
+				RxBuffer[strlen(RxBuffer)]=toupper(RxChar);
+				HAL_UART_Transmit(&huart2,(uint8_t *) &RxChar, 1, 10);
+			}
+		else CMDReceived=false  ;
 
+		}
+
+		HAL_UART_Receive_IT(&huart2,(uint8_t *) &RxChar, 1);
+	}
+//	else if (huart->Instance == USART1 )
+//	{int a =0 ;
+//		encode(&gps, rxchar) ;
+//		if(gps._gps_data_good)
+//		{if (((gps._new_altitude != 0)&&(gps._new_altitude != gps._altitude))||((gps._new_latitude != 0)&&(gps._new_latitude != gps._latitude))||((gps._new_longitude != 0)&&(gps._new_longitude != gps._longitude))||((gps._new_time != 0)&&(gps._new_time != gps._time)))
+//			{newData = true ;
+//			a= 2 ;
+//			xQueueGenericSend(Qpredict,&a ,0,queueSEND_TO_BACK ) ;
+//			}
+//		}
+//			if((sizeof(Rxbuf)-1)>strlen(Rxbuf))
+//				Rxbuf[strlen(Rxbuf)]=rxchar;
+//			else
+//				memset(Rxbuf,0,sizeof(Rxbuf));
+//		HAL_UART_Receive_IT(&huart1,(uint8_t*) &rxchar, 1) ;
+//	}
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_UART_RxCpltCallback can be implemented in the user file.
+   */
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

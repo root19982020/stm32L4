@@ -34,6 +34,7 @@
 #include "fonts.h"
 #include "image.h"
 #include "LCD_Test.h"
+#include "IHMMGR.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -111,7 +112,7 @@ int main(void)
   
   
   
-  
+  HAL_UART_Receive_IT(&huart2,(uint8_t *) &RxChar, 1);
   //LCD_0in96_test();
   
   //LCD_1in14_test();
