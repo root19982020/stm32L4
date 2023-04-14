@@ -26,17 +26,28 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "IHMMGR.h"
+#include "predictsat.h"
+#include "gps.h"
+#include "fonts.h"
+#include "predictsat.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+osThreadId defaultTaskHandle;
+osThreadId IHMHandle;
+osThreadId PREDICTHandle;
+osThreadId TRANSMITHandle;
+osThreadId ACQHandle;
+osThreadId AFFICHAGEHandle;
+osSemaphoreId SemSDHandle;
+osStaticSemaphoreDef_t SemSDControlBlock;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+void IHM_task(void const * pvParameters);
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -107,6 +118,8 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
+  osThreadDef(IHM, IHM_task, osPriorityIdle, 0, 512);
+    IHMHandle = osThreadCreate(osThread(IHM), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
