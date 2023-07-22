@@ -58,4 +58,5 @@ void LCD_1IN28_DisplayPoint(UWORD X, UWORD Y, UWORD Color);
 
 void LCD_1IN28_DrawPaint(UWORD x, UWORD y, UWORD Color);
 void LCD_1IN28_SetBackLight(UWORD Value);
+void AFF_task(void const * argument);
 #endif
