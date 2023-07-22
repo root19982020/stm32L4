@@ -13,12 +13,14 @@
 ******************************************************************************/
 #include "LCD_1in28.h"
 #include "DEV_Config.h"
+#include "TFT_MENU.h"
+#include "rtc.h"
+#include "TFT_MENU.h"
 
 #include <stdlib.h>		//itoa()
 #include <stdio.h>
 
 LCD_1IN28_ATTRIBUTES LCD_1IN28;
-
 
 /******************************************************************************
 function :	Hardware reset
@@ -462,4 +464,80 @@ void LCD_1IN28_SetBackLight(UWORD Value)
 {
 	DEV_Set_PWM(Value);
 }
+void AFF_task(void const * argument)
+{
+	char msg[50]={0};
+	RTC_TimeTypeDef sTimeRTC= {0};
+	RTC_DateTypeDef sDateRTC = {0};
 
+
+
+
+	/* USER CODE BEGIN StartTask06 */
+	LCD_1IN28_Init(1);
+	//	  fillScreen(ST7735_BLACK);
+	//	  setRotation(0);
+	//	  fillScreen(YELLOW);
+	//	  fillScreen(BLUE);
+	//	  fillScreen(BLACK);
+	//	  ST7735_DrawImage(0, 0, 160, 128, image_data_Image );
+	//	 	  	  vTaskDelay(1000/ portTICK_RATE_MS);
+	//	 	  	ST7735_SetRotation(3);
+	//	 	  		  fillScreen(WHITE);
+	//
+	//	 	  		//	  		  	  vTaskDelay(1000/ portTICK_RATE_MS);
+	//ST7735_DrawImage(0, 0, 160, 128, image_data_Image2 );
+//	HAL_Delay(1000
+	Acceuille();
+	Paint_Clear(BLACK);
+	HomeMenu();
+	HAL_Delay(2000);
+	/* Infinite loop */
+	for(;;)
+	{
+
+
+		HAL_RTC_GetTime(&hrtc, &sTimeRTC, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &sDateRTC, RTC_FORMAT_BIN);
+		//	  	    ST7735_WriteString(0, 0, "HELLO", Font_11x18, RED,BLACK);
+		//	  	    vTaskDelay(1000/ portTICK_RATE_MS);
+		//	  	    fillScreen(BLACK);
+		//
+		//	  	    ST7735_SetRotation(1);
+		//	  	    ST7735_WriteString(0, 0, "WORLD", Font_11x18, GREEN,BLACK);
+		//	  	  vTaskDelay(1000/ portTICK_RATE_MS);
+		//	  	    fillScreen(BLACK);
+		//
+		//	  	    ST7735_SetRotation(2);
+		//	  	    ST7735_WriteString(0, 0, "FROM", Font_11x18, BLUE,BLACK);
+		//	  	  vTaskDelay(1000/ portTICK_RATE_MS);
+		//	  	    fillScreen(BLACK);
+		//
+	//	ST7735_SetRotation(3);
+		//	  	    ST7735_WriteString(0, 0, "TELNET", Font_16x26, YELLOW,BLACK);
+		//	  	  vTaskDelay(1000/ portTICK_RATE_MS);
+		//	  	    fillScreen(BLACK);
+
+
+
+		//	  		  	ST7735_WriteString(20,78, "Current Time : ", Font_7x10, MAGENTA , WHITE);
+		//
+		//
+		//	  		 sprintf(msg, "%02d:%02d:%02d %02d/%02d GMT", sTimeRTC.Hours, sTimeRTC.Minutes, sTimeRTC.Seconds, sDateRTC.Date, sDateRTC.Month);
+		//	  		 ST7735_WriteString(20,95, msg , Font_7x10, MAGENTA , WHITE);
+		//	  		  char date[20]={0};
+		//	  		  strncpy(date,buffff,15);
+		//	  		ST7735_WriteString(20,95, date , Font_7x10, MAGENTA , WHITE);
+		//	  		ST7735_WriteString(20,105, "21:07:28 GMT" , Font_7x10, MAGENTA , WHITE);
+		//	  		  		  	    vTaskDelay(1000/ portTICK_RATE_MS);
+//		if (downbutton || upbutton ||	enter )
+//		HomeMenu();
+			Menu_Handler();
+//		if (homemenu)
+//		{
+//
+//		}
+		osDelay(10);
+	}
+	/* USER CODE END StartTask06 */
+}

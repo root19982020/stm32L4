@@ -31,6 +31,7 @@
 #include "gps.h"
 #include "fonts.h"
 #include "predictsat.h"
+#include "LCD_1in28.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,6 +49,7 @@ osStaticSemaphoreDef_t SemSDControlBlock;
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 void IHM_task(void const * pvParameters);
+void AFF_task(void const * argument) ;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -60,7 +62,7 @@ void IHM_task(void const * pvParameters);
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-
+osThreadId AFFICHAGEHandle;
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
@@ -120,6 +122,9 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_THREADS */
   osThreadDef(IHM, IHM_task, osPriorityIdle, 0, 512);
     IHMHandle = osThreadCreate(osThread(IHM), NULL);
+
+    osThreadDef(AFFICHAGE, AFF_task, osPriorityIdle, 0, 1024);
+    AFFICHAGEHandle = osThreadCreate(osThread(AFFICHAGE), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 

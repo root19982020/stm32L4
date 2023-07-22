@@ -234,7 +234,8 @@ void TIMEDATE_SET(char* args){
 	HAL_RTC_SetDate(&hrtc,&dateRTC, RTC_FORMAT_BIN) ;
 	HAL_UART_Transmit(&huart2,(uint8_t *)"time and date SET\r\n",20,40);
 	a = 3 ;
-	xQueueGenericSendFromISR(Qpredict, &a, 0 , queueSEND_TO_BACK );}
+//	xQueueGenericSendFromISR(Qpredict, &a, 0 , queueSEND_TO_BACK );
+	}
 	else
 		HAL_UART_Transmit(&huart2,(uint8_t *)"SORRY WRONG INPUT\r\n",20,40);
 }
